@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hx.spring.boot.more.datasource.mapper.db02.DeptMapper02">
+    <resultMap id="BaseResultMap" type="com.hx.spring.boot.more.datasource.model.Dept">
+        <!--@mbg.generated-->
+        <id column="deptno" jdbcType="BIGINT" property="deptno"/>
+        <result column="dname" jdbcType="VARCHAR" property="dname"/>
+        <result column="db_source" jdbcType="VARCHAR" property="dbSource"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        deptno, dname, db_source
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from dept
+        where deptno = #{deptno,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from dept
+        where deptno = #{deptno,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="deptno" keyProperty="deptno"
+            parameterType="com.hx.spring.boot.more.datasource.model.Dept" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dept (dname, db_source)
+        values (#{dname,jdbcType=VARCHAR}, #{dbSource,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" keyColumn="deptno" keyProperty="deptno"
+            parameterType="com.hx.spring.boot.more.datasource.model.Dept" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into dept
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dname != null">
+                dname,
+            </if>
+            <if test="dbSource != null">
+                db_source,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dname != null">
+                #{dname,jdbcType=VARCHAR},
+            </if>
+            <if test="dbSource != null">
+                #{dbSource,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.hx.spring.boot.more.datasource.model.Dept">
+        <!--@mbg.generated-->
+        update dept
+        <set>
+            <if test="dname != null">
+                dname = #{dname,jdbcType=VARCHAR},
+            </if>
+            <if test="dbSource != null">
+                db_source = #{dbSource,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where deptno = #{deptno,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.hx.spring.boot.more.datasource.model.Dept">
+        <!--@mbg.generated-->
+        update dept
+        set dname = #{dname,jdbcType=VARCHAR},
+        db_source = #{dbSource,jdbcType=VARCHAR}
+        where deptno = #{deptno,jdbcType=BIGINT}
+    </update>
+</mapper>

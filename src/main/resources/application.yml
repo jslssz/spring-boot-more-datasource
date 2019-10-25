@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  datasource01:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/clouddb01
+    username: root
+    password: 8899
+    driver-class-name: com.mysql.jdbc.Driver
+  datasource02:
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/clouddb02
+    username: root
+    password: 8899
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  config-location: classpath:conf/mybatis.cfg.xml
