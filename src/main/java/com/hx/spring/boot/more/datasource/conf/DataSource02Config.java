@@ -29,7 +29,7 @@ public class DataSource02Config {
      * @return
      */
     @Bean("dataSource02")
-    @ConfigurationProperties(prefix = "spring.datasource02")
+    @ConfigurationProperties(prefix = "spring.datasource01")
     public DataSource dataSource02() {
         return DataSourceBuilder.create().build();
     }

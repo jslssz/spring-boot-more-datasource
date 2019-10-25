@@ -29,7 +29,7 @@ public class DataSource01Config {
      * @return
      */
     @Bean("dataSource01")
-    @ConfigurationProperties(prefix = "spring.datasource01")
+    @ConfigurationProperties(prefix = "spring.datasource02")
     @Primary
     public DataSource dataSource01() {
         return DataSourceBuilder.create().build();
